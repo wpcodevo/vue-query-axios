@@ -137,13 +137,10 @@ const onSubmit = handleSubmit((values) => {
   resetForm();
 });
 
-const loading = authResult.isFetching || authResult.isLoading || isLoading;
-
 onBeforeUpdate(() => {
   if (authResult.isSuccess.value) {
     const authUser = Object.assign({}, authResult.data.value?.data.user);
     authStore.setAuthUser(authUser);
-    router.push({ name: 'home' });
   }
 });
 </script>
