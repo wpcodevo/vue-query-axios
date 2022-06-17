@@ -1,6 +1,6 @@
 <template>
   <section class="bg-ct-blue-600 min-h-screen grid place-items-center">
-    <div>
+    <div class="w-full">
       <h1
         class="text-4xl xl:text-6xl text-center font-[600] text-ct-yellow-600 mb-4"
       >
@@ -11,7 +11,7 @@
       </h2>
       <form
         @submit="onSubmit"
-        class="max-w-[27rem] mx-auto overflow-hidden shadow-lg bg-ct-dark-200 rounded-2xl p-8 space-y-5"
+        class="max-w-md w-full mx-auto overflow-hidden shadow-lg bg-ct-dark-200 rounded-2xl p-8 space-y-5"
       >
         <div class="">
           <label for="email" class="block text-ct-blue-600 mb-3"
@@ -46,7 +46,9 @@
         <div class="text-right">
           <a href="" class="">Forgot Password?</a>
         </div>
-        <LoadingButton :loading="isLoading">Login</LoadingButton>
+        <LoadingButton :loading="isLoading" :textColor="'text-ct-blue-600'"
+          >Login</LoadingButton
+        >
         <span class="block"
           >Need an account?
           <router-link :to="{ name: 'register' }" class="text-ct-blue-600"
@@ -124,7 +126,7 @@ const { isLoading, mutate } = useMutation(
       createToast('Successfully logged in', {
         position: 'top-right',
       });
-      router.push({ name: 'profile' });
+      router.push({ name: 'home' });
     },
   }
 );

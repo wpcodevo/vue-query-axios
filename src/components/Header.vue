@@ -21,17 +21,25 @@
             >Profile</router-link
           >
         </li>
+        <li v-if="!user" class="cursor-pointer" @click="toggleModal">
+          Create Post
+        </li>
         <li v-if="user" class="cursor-pointer" @click="handleLogout">Logout</li>
       </ul>
     </nav>
   </header>
+  <teleport to="body">
+    <CreatePost v-if="openModal" :toggleModal="toggleModal" />
+  </teleport>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { logoutUserFn } from '@/api/authApi';
 import { useMutation } from 'vue-query';
 import { useAuthStore } from '@/stores/authStore';
 import { createToast } from 'mosha-vue-toastify';
+import CreatePost from '@/components/CreatePost.vue';
 
 const authStore = useAuthStore();
 
@@ -62,4 +70,10 @@ const { mutate: logoutUser } = useMutation(() => logoutUserFn(), {
 const handleLogout = () => {
   logoutUser();
 };
+
+const openModal = ref(false);
+
+function toggleModal() {
+  openModal.value = !openModal.value;
+}
 </script>

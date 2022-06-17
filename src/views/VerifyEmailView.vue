@@ -1,6 +1,6 @@
 <template>
   <section class="py-8 bg-ct-blue-600 min-h-screen grid place-items-center">
-    <div>
+    <div class="w-full">
       <h1
         class="text-5xl xl:text-7xl text-center font-[600] text-ct-yellow-600 mb-8"
       >
@@ -9,7 +9,7 @@
 
       <form
         @submit="onSubmit"
-        class="max-w-[27rem] mx-auto overflow-hidden shadow-lg bg-ct-dark-200 rounded-2xl p-8 space-y-5"
+        class="max-w-md w-full mx-auto overflow-hidden shadow-lg bg-ct-dark-200 rounded-2xl p-8 space-y-5"
       >
         <div class="">
           <label for="verificationCode" class="block text-ct-blue-600 mb-3"
