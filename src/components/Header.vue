@@ -2,7 +2,7 @@
   <header class="bg-white h-20">
     <nav class="h-full flex justify-between container items-center">
       <div>
-        <router-link to="/" class="text-ct-dark-600 font-semibold"
+        <router-link to="/" class="text-xl text-ct-dark-600 font-semibold"
           >CodevoWeb</router-link
         >
       </div>
