@@ -103,7 +103,7 @@ import { onMounted } from 'vue';
 import { useField, useForm, Field } from 'vee-validate';
 import * as zod from 'zod';
 import { toFormValidator } from '@vee-validate/zod';
-import { useMutation } from 'vue-query';
+import { useMutation, useQueryClient } from 'vue-query';
 import { updatePostFn } from '@/api/postApi';
 import { createToast } from 'mosha-vue-toastify';
 import type { IPostResponse } from '@/api/types';
@@ -146,11 +146,13 @@ const onFileChange = (event: any) => {
   }
 };
 
+const queryClient = useQueryClient();
 const { mutate: updatePost, isLoading } = useMutation(
   ({ id, formData }: { id: string; formData: FormData }) =>
     updatePostFn({ id, formData }),
   {
     onSuccess: (data) => {
+      queryClient.invalidateQueries('posts');
       createToast('Post updated successfully', {
         position: 'top-right',
       });

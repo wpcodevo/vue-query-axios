@@ -86,7 +86,7 @@ const { isLoading, mutate: deletePost } = useMutation(
   (id: string) => deletePostFn(id),
   {
     onSuccess: (data) => {
-      createToast('Post updated successfully', {
+      createToast('Post deleted successfully', {
         position: 'top-right',
       });
       queryClient.invalidateQueries('posts');

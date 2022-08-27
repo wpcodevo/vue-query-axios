@@ -126,7 +126,7 @@ const { isLoading, mutate } = useMutation(
       createToast('Successfully logged in', {
         position: 'top-right',
       });
-      router.push({ name: 'home' });
+      router.push({ name: 'profile' });
     },
   }
 );

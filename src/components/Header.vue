@@ -21,7 +21,7 @@
             >Profile</router-link
           >
         </li>
-        <li v-if="!user" class="cursor-pointer" @click="toggleModal">
+        <li v-if="user" class="cursor-pointer" @click="toggleModal">
           Create Post
         </li>
         <li v-if="user" class="cursor-pointer" @click="handleLogout">Logout</li>
